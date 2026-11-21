@@ -23,6 +23,8 @@ jobs:
             echo "devkitPro package server refused (try $i), waiting"; sleep 90
           done
           dkp-pacman -Q switch-mesa switch-sdl2 switch-openal-soft
+      - name: Trust the workspace for git
+        run: git config --global --add safe.directory '*'
       - name: Configure host tree
         run: |
           meson setup build-host --buildtype release

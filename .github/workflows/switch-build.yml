@@ -31,7 +31,7 @@ jobs:
           ninja -C build-host
       - name: Generate and build the NRO
         run: |
-          python3 tools/switch/gen_ninja.py --host-build build-host --out build-switch
+          python3 tools/switch/gen_ninja.py --host-build build-host --out build-switch --source-root "$PWD"
           ninja -C build-switch
       - uses: actions/upload-artifact@v4
         with:

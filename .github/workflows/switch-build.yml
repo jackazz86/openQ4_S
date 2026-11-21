@@ -29,3 +29,10 @@ jobs:
         with:
           name: openQ4-nro
           path: build-switch/openQ4.nro
+      - name: List content packs
+        run: ls -lh build-host/baseoq4 || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openQ4-content-packs
+          path: build-host/baseoq4/pak*.pk4
+          if-no-files-found: warn
